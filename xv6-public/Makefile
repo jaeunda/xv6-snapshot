@@ -188,10 +188,6 @@ UPROGS=\
 	_snap_create\
 	_snap_rollback\
 	_snap_delete\
-	_attack_snap\
-	_stress_cleanup\
-	_stress_block\
-	_stress_inode\
 
 fs.img: mkfs README $(UPROGS)
 	./mkfs fs.img README $(UPROGS)
