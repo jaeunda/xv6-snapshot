@@ -2,11 +2,7 @@
 
 **Keep an earlier filesystem state without copying every file's contents.** I extended xv6's filesystem with block-level copy-on-write, persistent block reference counts, and commands to create, restore, and delete snapshots.
 
-![Measured storage: 262 to 3 additional blocks, 98.85% less incremental space; 18 blocks of upfront metadata. Same files, one saved namespace and one-byte append, verified in two fresh-image runs.](docs/assets/storage-result.svg)
-
-[Method, measured values, and reproduction](docs/measurements.md).
-
-A full copy spends space on bytes that have not changed. This implementation separates the directory tree from the data it names: a snapshot receives new inodes and directory entries, while ordinary files initially share their disk blocks with the live tree. A later write copies the shared block being changed, leaving the saved version intact.
+A full copy spends space on bytes that have not changed. This implementation separates the directory tree from the data it names: a snapshot receives new inodes and directory entries, while ordinary files initially share their disk blocks with the live tree. A later write copies the shared block being changed, leaving the saved version intact. That sharing reduced incremental storage by **98.85% (262 → 3 blocks)** in a controlled save-and-append comparison with a stock-xv6 full copy; initial snapshot metadata cost another 18 blocks. [Measurement details](docs/measurements.md).
 
 ![Live and snapshot inodes initially share a block; a live write creates a private copy and leaves the original with the snapshot.](docs/assets/block-cow.svg)
 
