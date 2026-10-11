@@ -2,6 +2,8 @@
 
 **Keep an earlier filesystem state without copying every file's contents.** I extended xv6's filesystem with block-level copy-on-write, persistent block reference counts, and commands to create, restore, and delete snapshots.
 
+> **Measured storage:** one saved namespace plus a one-byte live append added **3 blocks**, versus **262 blocks** for a full copy on stock xv6: **98.85% less incremental space** in the controlled fixture. The snapshot format also needs **18 blocks of initial metadata**. [Method, raw counts, and reproduction](docs/measurements.md).
+
 A full copy spends space on bytes that have not changed. This implementation separates the directory tree from the data it names: a snapshot receives new inodes and directory entries, while ordinary files initially share their disk blocks with the live tree. A later write copies the shared block being changed, leaving the saved version intact.
 
 ![Live and snapshot inodes initially share a block; a live write creates a private copy and leaves the original with the snapshot.](docs/assets/block-cow.svg)
@@ -93,7 +95,9 @@ The documented QEMU run used one virtual CPU. It confirmed the following behavio
 | Delete snapshot 01 | Its directory disappears; `/snapshot/.brefcnt` remains. |
 | Restart the same disk image | The next create returns ID 2, preserving the ID sequence. |
 
-The development report also records multiple snapshots, nested-directory restoration, link/unlink rejection, and inode exhaustion followed by snapshot deletion and another create attempt. These are historical demonstrations; the table above describes the fresh validation. No throughput or storage-reduction benchmark is claimed.
+The development report also records multiple snapshots, nested-directory restoration, link/unlink rejection, and inode exhaustion followed by snapshot deletion and another create attempt. These are historical demonstrations; the table above describes the fresh validation. The separate [storage comparison](docs/measurements.md) measures bitmap growth against a full-copy baseline; it does not measure throughput.
+
+A new overwrite probe exposed a persistence gap: `bmap` can replace a shared direct-block address, but `writei` only calls `iupdate` when the file grows. A first-byte overwrite of a saved file returned success yet the live file showed its original byte after reboot. CoW writes that replace an inode address without extending the file therefore cannot be treated as durable. The measured append grows the file, persists its changed pointers, and passes byte-for-byte saved-content checks after shutdown.
 
 Snapshot operations take a sleep lock and participate in xv6's `begin_op` / `end_op` log protocol. Ordinary writers do not take that global snapshot lock. These mechanisms do not establish a consistent capture under arbitrary concurrent writers or a crash-atomic snapshot of an arbitrarily large tree: the log and inode pool remain bounded. Top-level create failures attempt cleanup, but recursive clone return values are not propagated everywhere, and rollback can already have cleared live entries when an error occurs. Hard-linked names are cloned separately rather than preserving their shared inode identity; existing open descriptors and working directories are not redirected to newly restored inodes.
 

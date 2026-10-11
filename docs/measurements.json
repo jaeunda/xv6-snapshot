@@ -1,0 +1,115 @@
+{
+  "stock_full_copy": {
+    "before_save": 350,
+    "after_save": 611,
+    "after_edit": 612,
+    "save_growth_blocks": 261,
+    "save_plus_edit_growth_blocks": 262,
+    "saved_files": {
+      "README": 2286,
+      "init": 15484,
+      "sh": 27648,
+      "storage": 19168,
+      "payload": 65536
+    },
+    "saved_sha256": {
+      "README": "8f447a77c94261d3395088fe5144d840bb619afa9fecb4f9c935f5cce97146d4",
+      "init": "e84c31213bfa77ba99190e965f56bdd9ca93560dc6a2b46510140feb9b6a6301",
+      "sh": "089423ce23086754c7e8167464bd34734d41da6618fdb108256a05e2f11f61ad",
+      "storage": "25baf1e631c1aefb582cde9d7cc810edb52d9ffadcbbb9ee0c13b26f3aa3f2e2",
+      "payload": "46d51b609874a25826df4788a1d3d934106ead0dfa76102b8c252cc32bb39f10"
+    },
+    "payload_sha256": "46d51b609874a25826df4788a1d3d934106ead0dfa76102b8c252cc32bb39f10",
+    "preserved_bytes_verified": true
+  },
+  "snapshot": {
+    "before_save": 368,
+    "after_save": 369,
+    "after_edit": 371,
+    "save_growth_blocks": 1,
+    "save_plus_edit_growth_blocks": 3,
+    "saved_files": {
+      "README": 2286,
+      "init": 15484,
+      "sh": 27648,
+      "storage": 19168,
+      "payload": 65536
+    },
+    "saved_sha256": {
+      "README": "8f447a77c94261d3395088fe5144d840bb619afa9fecb4f9c935f5cce97146d4",
+      "init": "e84c31213bfa77ba99190e965f56bdd9ca93560dc6a2b46510140feb9b6a6301",
+      "sh": "089423ce23086754c7e8167464bd34734d41da6618fdb108256a05e2f11f61ad",
+      "storage": "25baf1e631c1aefb582cde9d7cc810edb52d9ffadcbbb9ee0c13b26f3aa3f2e2",
+      "payload": "46d51b609874a25826df4788a1d3d934106ead0dfa76102b8c252cc32bb39f10"
+    },
+    "payload_sha256": "46d51b609874a25826df4788a1d3d934106ead0dfa76102b8c252cc32bb39f10",
+    "preserved_bytes_verified": true
+  },
+  "baseline_commit": "eeb7b415dbcb12cc362d0783e41c3d1f44066b17",
+  "block_bytes": 512,
+  "payload_bytes": 65536,
+  "metric": "incremental allocated blocks for one saved namespace plus a one-byte live append",
+  "reduction_percent": 98.85496183206106,
+  "snapshot_initial_metadata_overhead_blocks": 18,
+  "identical_guest_files_verified": true,
+  "gcc": "9.5.0",
+  "qemu": "QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.16)",
+  "extension_source_commit": "c0eeddb5d4f86b22560757701025b5a725e9dea7",
+  "repeat_run": {
+    "stock_full_copy": {
+      "before_save": 350,
+      "after_save": 611,
+      "after_edit": 612,
+      "save_growth_blocks": 261,
+      "save_plus_edit_growth_blocks": 262,
+      "saved_files": {
+        "README": 2286,
+        "init": 15484,
+        "sh": 27648,
+        "storage": 19168,
+        "payload": 65536
+      },
+      "saved_sha256": {
+        "README": "8f447a77c94261d3395088fe5144d840bb619afa9fecb4f9c935f5cce97146d4",
+        "init": "caf6a284a543bd6e936cc750359eddb4f4e91416808280230af6e920ea97fd04",
+        "sh": "dd1017afb7387044252dab59625eab9c68ce163740b43bc20c2ee3ac543d0b38",
+        "storage": "ba0ef3b3fd3e11f4f65ce8bc995de9b5719699a9cf41c8131c46ef3de2871ac7",
+        "payload": "46d51b609874a25826df4788a1d3d934106ead0dfa76102b8c252cc32bb39f10"
+      },
+      "payload_sha256": "46d51b609874a25826df4788a1d3d934106ead0dfa76102b8c252cc32bb39f10",
+      "preserved_bytes_verified": true
+    },
+    "snapshot": {
+      "before_save": 368,
+      "after_save": 369,
+      "after_edit": 371,
+      "save_growth_blocks": 1,
+      "save_plus_edit_growth_blocks": 3,
+      "saved_files": {
+        "README": 2286,
+        "init": 15484,
+        "sh": 27648,
+        "storage": 19168,
+        "payload": 65536
+      },
+      "saved_sha256": {
+        "README": "8f447a77c94261d3395088fe5144d840bb619afa9fecb4f9c935f5cce97146d4",
+        "init": "caf6a284a543bd6e936cc750359eddb4f4e91416808280230af6e920ea97fd04",
+        "sh": "dd1017afb7387044252dab59625eab9c68ce163740b43bc20c2ee3ac543d0b38",
+        "storage": "ba0ef3b3fd3e11f4f65ce8bc995de9b5719699a9cf41c8131c46ef3de2871ac7",
+        "payload": "46d51b609874a25826df4788a1d3d934106ead0dfa76102b8c252cc32bb39f10"
+      },
+      "payload_sha256": "46d51b609874a25826df4788a1d3d934106ead0dfa76102b8c252cc32bb39f10",
+      "preserved_bytes_verified": true
+    },
+    "baseline_commit": "eeb7b415dbcb12cc362d0783e41c3d1f44066b17",
+    "block_bytes": 512,
+    "payload_bytes": 65536,
+    "metric": "incremental allocated blocks for one saved namespace plus a one-byte live append",
+    "reduction_percent": 98.85496183206106,
+    "snapshot_initial_metadata_overhead_blocks": 18,
+    "identical_guest_files_verified": true,
+    "gcc": "9.5.0",
+    "qemu": "QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.16)"
+  }
+}
